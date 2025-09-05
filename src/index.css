@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FSaaS Oil Delivery Demo – Light Theme First */
+
+@layer base {
+  :root {
+    /* ---- Core (LIGHT) ---- */
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;           /* blue (links, accents) */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --success: 142 71% 45%;                  /* green */
+    --warning: 43 96% 56%;                   /* amber */
+    --danger: 0 84% 60%;                     /* red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --info: 199 95% 45%;
+    --retail: 195 85% 41%;                   /* cyan */
+    --knowledge: 262 83% 60%;                /* violet */
+    --notify: 45 93% 47%;                    /* amber */
+
+    --radius: 0.75rem;
+  }
+
+  /* Optional DARK palette (only applies if <html class="dark">) */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 47.4% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 47.4% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --primary: 224.3 76.3% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --success: 142 71% 45%;
+    --warning: 43 96% 56%;
+    --danger: 0 84% 60%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --info: 199 95% 45%;
+    --retail: 195 85% 41%;
+    --knowledge: 262 83% 60%;
+    --notify: 45 93% 47%;
+  }
+}
+
+/* Smooth UI primitives */
+@layer base {
+  * { @apply border-border; }
+  html, body { height: 100%; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.12);
+    color: hsl(var(--primary));
+  }
+}
+
+/* Helpful utility classes mapped to tokens (kept tiny & semantic) */
+@layer components {
+  .text-success { color: hsl(var(--success)); }
+  .text-warning { color: hsl(var(--warning)); }
+  .text-danger  { color: hsl(var(--danger));  }
+  .text-info    { color: hsl(var(--info));    }
+  .text-retail  { color: hsl(var(--retail));  }
+
+  .bg-success { background-color: hsl(var(--success)); }
+  .bg-warning { background-color: hsl(var(--warning)); }
+  .bg-danger  { background-color: hsl(var(--danger));  }
+  .bg-info    { background-color: hsl(var(--info));    }
+
+  .card-surface { @apply bg-card border rounded-xl; }
+}
+
+/* Subtle animations (optional) */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0px hsl(var(--primary) / 0.0); }
+  50% { box-shadow: 0 0 18px hsl(var(--primary) / 0.25); }
+}
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
